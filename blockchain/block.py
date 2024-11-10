@@ -1,6 +1,7 @@
 import hashlib
 import time
 
+
 class Block:
     def __init__(self, index, previous_hash, data, timestamp=None, hash=None):
         self.index = index
@@ -21,7 +22,7 @@ class Block:
             "previous_hash": self.previous_hash,
             "timestamp": self.timestamp,
             "data": self.data,
-            "hash": self.hash
+            "hash": self.hash,
         }
 
     @classmethod
@@ -32,5 +33,5 @@ class Block:
             previous_hash=block_data["previous_hash"],
             data=block_data["data"],
             timestamp=block_data["timestamp"],
-            hash=block_data["hash"]
+            hash=block_data["hash"],
         )
