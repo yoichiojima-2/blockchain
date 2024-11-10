@@ -8,7 +8,6 @@ class Block:
         self.previous_hash = previous_hash
         self.timestamp = timestamp or time.time()
         self.data = data
-        # Use provided hash or calculate it if it's a new block
         self.hash = hash or self.calculate_hash()
 
     def calculate_hash(self):
@@ -16,7 +15,6 @@ class Block:
         return hashlib.sha256(block_string.encode()).hexdigest()
 
     def to_dict(self):
-        # Return a dictionary with only serializable data
         return {
             "index": self.index,
             "previous_hash": self.previous_hash,
@@ -27,7 +25,6 @@ class Block:
 
     @classmethod
     def from_dict(cls, block_data):
-        # Create a Block instance from a dictionary
         return cls(
             index=block_data["index"],
             previous_hash=block_data["previous_hash"],
